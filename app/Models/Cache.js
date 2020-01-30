@@ -12,6 +12,7 @@ class Cache extends Model {
     static async fetchExternal(key, fetcher, lifeSpan) {
         let cache = await Cache.findBy('key', key);
         if (cache && cache.expiry > new Date()) {
+            console.log(cache.value);
             return JSON.parse(cache.value);
         }
         let expiry = new Date();
