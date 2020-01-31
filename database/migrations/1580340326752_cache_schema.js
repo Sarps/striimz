@@ -8,7 +8,7 @@ class CacheSchema extends Schema {
         this.create('caches', (table) => {
             table.increments();
             table.string("key", 100);
-            table.json("value");
+            table.text("value");
             table.timestamp("expiry");
             table.timestamps();
         })
