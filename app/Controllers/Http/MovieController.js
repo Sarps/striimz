@@ -8,7 +8,6 @@ class MovieController {
     async index({request, response, view}) {
         let index = {};
         try {
-            console.log('something');
             index = await Cache.fetchExternal('index', Movies.index.bind(Movies), 60*60*24);
         } catch (e) {
             console.log(e);
