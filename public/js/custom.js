@@ -128,7 +128,7 @@ $(function(){
         centerMode: true,
 		autoplay: true ,
 		autoplaySpeed: 2000,
-		dots: true,
+		dots: false,
 		responsive: [
 	    {
 	      breakpoint: 1200,
