@@ -18,4 +18,6 @@ const Route = use('Route');
 
 Route.get("/", 'MovieController.index');
 
+Route.get("/search", 'MovieController.search');
+
 Route.get("/:movie", 'MovieController.single');

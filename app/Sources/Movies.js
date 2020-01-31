@@ -21,8 +21,10 @@ class Movies extends Base {
 
     static async search(params) {
         try {
-            let $ = await this.load('search', params);
-            return $('#main .post').map((_, v) => this._fetchPostDetails($(v), $, '.post-body .content.clearfix div')).get();
+            let $ = await this.load('search', params),
+                movies = $('#main .post').map((_, v) => this._fetchPostDetails($(v), $, '.post-body .content.clearfix div')).get();
+            await this._saveMovies(movies);
+            return movies;
         } catch (e) {
             return [];
         }

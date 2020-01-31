@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+<!-- moviegrid07:29-->
+<head>
+
+    <title>{{old.q}} - Striimz Search</title>
+
+    @include('partials.head')
+
+    <meta property="og:title" content="Striimz Movie Download"/>
+    <meta property="og:description" content="Download Latest Movies from streams"/>
+    <meta property=" og:image" itemprop="image" content="{{ urli('images/logo-small.png') }}"/>
+
+    <meta property="og:site_name" content="Striimz Movie Download"/>
+    <meta property="og:type" content="website"/>
+
+</head>
+<body>
+
+@include('partials.preloader')
+
+@include('partials.login')
+
+@include('partials.signup')
+
+<!--@include('partials.header')-->
+
+<!-- BEGIN | Header -->
+<header class="ht-header">
+    <div class="container">
+
+        @include('partials.nav')
+        <!-- top search form -->
+        <form action="/search" method="get" style="display: block;">
+            <div class="top-search">
+                <select name="cat">
+                    <option value="united">TV show</option>
+                    <option value="saab">Others</option>
+                </select>
+                <input type="text" placeholder="Search" name="q" value="{{old.q}}"/>
+            </div>
+        </form>
+    </div>
+</header>
+<!-- END | Header -->
+
+<div class="hero common-hero" style="background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> movie search results</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <p>Found <span>{{movies.length}} movie(s)</span> in total</p>
+                    <label>Sort by:</label>
+                    <select>
+                        <option value="popularity">Best Match</option>
+                    </select>
+                    <a href="movielist.html" class="list"><i class="ion-ios-list-outline "></i></a>
+                    <a href="moviegrid.html" class="grid"><i class="ion-grid active"></i></a>
+                </div>
+                <div class="flex-wrap-movielist">
+                    @each(movie in movies)
+                    <div class="movie-item-style-2 movie-item-style-1">
+                        <img src="{{movie.cover}}" alt="">
+                        <div class="hvr-inner">
+                            <a href="{{movie.url}}"> Download <i class="ion-android-arrow-dropright"></i> </a>
+                        </div>
+                        <div class="mv-item-infor">
+                            <h6><a href="#">{{movie.title}}</a></h6>
+                            <p class="rate"><i class="ion-android-star"></i><span>{{movie.dl.length}}</span> /10</p>
+                        </div>
+                    </div>
+                    @endeach
+                </div>
+                <div class="topbar-filter">
+                    <label>Movies per page:</label>
+                    <select disabled>
+                        <option value="range">20 Movies</option>
+                        <option value="saab">10 Movies</option>
+                    </select>
+
+                    <div class="pagination2">
+                        <span>Page 1 of 1:</span>
+                        <a class="active" href="#">1</a>
+                        <a href="#"><i class="ion-arrow-right-b"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="searh-form">
+                        <h4 class="sb-title">Search for movie</h4>
+                        <form class="form-style-1" action="#">
+                            <div class="row">
+                                <div class="col-md-12 form-it">
+                                    <label>Movie name</label>
+                                    <input type="search" placeholder="Enter keywords">
+                                </div>
+                                <div class="col-md-12 form-it">
+                                    <label>Genres & Subgenres</label>
+                                    <div class="group-ip">
+                                        <select
+                                            name="skills" multiple="" class="ui fluid dropdown">
+                                            <option value="">Enter to filter genres</option>
+                                            <option value="Action1">Action 1</option>
+                                            <option value="Action2">Action 2</option>
+                                            <option value="Action3">Action 3</option>
+                                            <option value="Action4">Action 4</option>
+                                            <option value="Action5">Action 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-it">
+                                    <label>Rating Range</label>
+                                    <select>
+                                        <option value="range">-- Select the rating range below --</option>
+                                        <option value="saab">-- Select the rating range below --</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-it">
+                                    <label>Release Year</label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select>
+                                                <option value="range">From</option>
+                                                <option value="number">10</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select>
+                                                <option value="range">To</option>
+                                                <option value="number">20</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <input class="submit" type="submit" value="submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- latest new v2 section-->
+            <div class="latestnew full-width">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ads adsv2">
+                            <img src="images/uploads/ads2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--end of latest new v2 section-->
+        </div>
+    </div>
+</div>
+
+@include('partials.footer')
+
+{{ script('js/jquery') }}
+{{ script('js/plugins') }}
+{{ script('js/plugins2') }}
+{{ script('js/custom') }}
+
+</body>
+
+<!-- moviegrid07:38-->
+</html>

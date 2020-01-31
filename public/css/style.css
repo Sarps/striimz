@@ -7146,11 +7146,11 @@ p.ceb-single {
 }
 .sliderv2 .movie-item .title-in h1 a {
   font-family: 'Dosis', sans-serif;
-  font-size: 60px;
+  font-size: 50px;
   color: #ffffff;
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 60px;
+  line-height: 50px;
 }
 .sliderv2 .movie-item .title-in h1 a span {
   font-family: 'Dosis', sans-serif;
@@ -8128,7 +8128,7 @@ header#headerv3-light {
 }
 @media (max-width: 767px) {
   .top-search {
-    display: none !important;
+    /*display: none !important;*/
   }
   header .navbar-default {
     padding: 10px 0;

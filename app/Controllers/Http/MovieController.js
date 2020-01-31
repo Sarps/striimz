@@ -31,6 +31,19 @@ class MovieController {
         return view.render('single', {...movie, filters});
     }
 
+    async search({request, response, view, params}) {
+        let movies, filters, old = request.only('q');
+        try {
+            movies = await Movies.search(old);
+            filters = await Movies.dummyGetFilters();
+        } catch (e) {
+            console.log(e);
+            movies = [];
+            filters = {};
+        }
+        return view.render('search', {movies, filters, old});
+    }
+
 
     _chunkLatest(latest) {
         let rows = 4, chunk = [], width = Math.floor(latest.length / rows);
