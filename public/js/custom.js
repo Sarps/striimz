@@ -136,14 +136,15 @@ $(function(){
 	        slidesToShow: 3,
 	        slidesToScroll: 2,
 	        infinite: true,
-	        dots: true
+	        dots: false
 	      }
 	    },
 	    {
 	      breakpoint: 768,
 	      settings: {
 	        slidesToShow: 3,
-	        slidesToScroll: 3
+	        slidesToScroll: 3,
+              dots: false
 	      }
 	    },
 	    {

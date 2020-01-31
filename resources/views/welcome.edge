@@ -31,7 +31,7 @@
 
 @include('partials.header')
 
-<div class="slider sliderv2">
+<div class="slider sliderv2" style="background-size: cover;">
     <div class="container">
         <div class="row">
             <div class="slider-single-item">
@@ -51,9 +51,9 @@
                                 <br/>
                                 <div class="social-btn">
                                     <a href="#" class="parent-btn"><i class="ion-play"></i> Watch Trailer</a>
-                                    <div class="hover-bnt">
+                                    <div class="hover-bnt" style="display: contents;">
                                         <a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
-                                        <div class="hvr-item">
+                                        <div class="hvr-item" style="float: right;">
                                             <a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
                                             <a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
                                             <a href="#" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
@@ -96,16 +96,16 @@
                 <h2>in theater</h2>
                 <a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
             </div>
-            @each(chunk in latest)
             <div class="tabs">
                 <ul class="tab-links">
-                    <li class="active"><a href="#tab1-h{{$loop.index}}">#Popular</a></li>
-                    <li><a href="#tab2-h{{$loop.index}}"> #Coming soon</a></li>
-                    <li><a href="#tab3-h{{$loop.index}}"> #Top rated </a></li>
-                    <li><a href="#tab4-h{{$loop.index}}"> #Most reviewed</a></li>
+                    <li class="active"><a href="#tab1-h1">#Popular</a></li>
+                    <li><a href="#tab2-h1"> #Coming soon</a></li>
+                    <li><a href="#tab3-h1"> #Top rated </a></li>
+                    <li><a href="#tab4-h1"> #Most reviewed</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div id="tab1-h{{$loop.index}}" class="tab active">
+                    <div id="tab1-h1" class="tab active">
+                        @each(chunk in latest)
                         <div class="row">
                             <div class="slick-multiItem2">
                                 @each(movie in chunk)
@@ -126,10 +126,10 @@
                                 @endeach
                             </div>
                         </div>
+                        @endeach
                     </div>
                 </div>
             </div>
-            @endeach
         </div>
     </div>
 </div>
